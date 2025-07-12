@@ -107,19 +107,18 @@ public class Arrays {
 
    }
 
+   //8) Reverse the order of elements in an array.
+   public static void ReverseArray(int[] arr){
+      // create a new array, and store the value in reverse order of arr
+      // print the reversed array
+   }
 
      public static void main(String[] args) {
-       int[] testArr = new int[5];
-       testArr[0] = 10;
-       testArr[1] = 30;
-       testArr[2] = 30;
-       testArr[3] = 140;
-       testArr[4] = 50;
+       int[] testArr = {10,20,30,40,50};
+   
 
        PrintArray(testArr);
-
        PrintSum(testArr);
-
        PrintLargest(testArr);
 
        FindNumber(15,testArr);
