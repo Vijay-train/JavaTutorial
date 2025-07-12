@@ -16,14 +16,15 @@ import java.lang.System;
 
 13)Given an array of integers and a target sum, 
 find if there exists a pair of elements in the array that add up to the target sum.
-14)Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 
 Homework
+* 12)find if there exists a pair of elements in the array that add up to the target sum.
 * 10)Given an array with duplicate elements, create a new array with only unique elements.
 * 11)Write a program to rotate an array to the left by one position.
 * 15)Count the frequency of each element in an array.
 * 16)Given an array of integers, count the number of even and odd numbers in it.
-
+* 14)Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
+* 
 */
 public class Arrays {
 
