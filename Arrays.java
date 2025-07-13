@@ -26,6 +26,8 @@ Homework
 * 14)Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
 * 
 */
+
+
 public class Arrays {
 
 
@@ -190,7 +192,8 @@ public class Arrays {
 // {10,5,25,8,25,15} , targetSum = 20 .. Yes or no.. Yes = if there is pair that sums to the target sum
 // pair = any pair of 2 elements in the array
 
-   public static void FindPairWithSum(int[] arr, int targetSum){
+   public static void FindPairWithSum(int[] arr, int targetSum)
+   {
       int isPair = 0;
       for(int i = 0; i < arr.length - 1; i++){
          if(arr[i] + arr[i+1] == targetSum){
@@ -202,7 +205,31 @@ public class Arrays {
       if(isPair == 0){
          System.out.println("NO Pair");
       }
-    }
+   }
+
+    public static void testFun(int[] arr)
+    {
+       int target=30;
+       boolean targetFound = false;
+       
+       for(int i=0;i<=arr.length-1;i++){
+         
+        int sum = arr[i] + arr[i+1];    
+        
+        if(target==sum){
+            targetFound = true;
+            break;
+           }
+           
+      }
+
+      if (targetFound == true)
+         System.out.println("Target found.....");
+      else
+          System.out.println("Target NOT found");
+   }
+
+
 
 
      public static void main(String[] args) {
@@ -220,7 +247,22 @@ public class Arrays {
        */
 
       
-      FindPairWithSum(testArr,133);
+    //  FindPairWithSum(testArr,133);
+
+     // testFun(testArr);
+
+      int[] scores = new int[5];
+       for(int i = 0; i < scores.length; i++){
+         System.out.println((scores[i]));
+      }
+
+      int[] scores1 = {0,0,0,0,0};
+      System.out.println ("Printing scores1");
+      for(int i = 0; i < scores1.length; i++){
+         System.out.println((scores1[i]));
+      }
+
+   
        
 
      }
