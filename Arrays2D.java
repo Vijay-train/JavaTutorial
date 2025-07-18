@@ -8,9 +8,35 @@ public class Arrays2D {
         3) Add two matrices (2D arrays) of the same dimensions.
         4) Given a square matrix (number of rows equals number of columns), 
         calculate the sum of its main diagonal elements.
-        5) Count how many even and odd numbers are present in a 2D integer array.
+        
 
 
+
+     
+// IN CLASS
+        Problem: Count how many even and odd numbers are present in a 2D integer array.
+
+        Problem: Add two matrices (2D arrays) of the same dimensions.
+       
+      
+
+
+
+
+        Problem: Given a square matrix (number of rows equals number of columns), 
+        calculate the sum of its main diagonal elements.
+
+         
+       
+        
+
+        Problem: Given a 2D array, 
+        check if any entire row consists only of zeros, 
+        or if any entire column consists only of zeros.
+
+        Problem: Given a 2D array, 
+        calculate and print the sum of elements for each row, 
+        and then the sum of elements for each column.
       */
     
     public static void PrintArray(int[][] arr){
@@ -63,11 +89,63 @@ public class Arrays2D {
        System.out.println("The Largest sum in this row   is " + sum);
     }
 
+    
+    // Problem: Count how many even and odd numbers are present in a 2D integer array.
+    // // "the total number of even numbers = 12, odd numbes = 13"
+    public static void CountEvenOdd(int[][] arr){
+    // even % will give 0 , odd will not 0
+
+        int evenCount = 0;
+        int oddCount = 0;
+
+        // outerloop that is traversing row by row
+        for (int i = 0 ; i < arr.length; i++){
+            // inner loop, that will traver column in this row
+            for (int j = 0; j < arr[i].length; j++){
+                if (arr[i][j] % 2  == 0){// even
+                    evenCount++;
+                }
+                else{
+                    oddCount++;
+                }
+            }
+        }
+
+        System.out.println("Even count = " + evenCount);
+        System.out.println("Odd count = " + oddCount);
+    }
+
+    // Problem: Add two matrices (2D arrays) of the same dimensions.
+    public static void AddArrays(int[][] arr1, int[][] arr2)
+    {
+      int[][] sumArray = new int[arr1.length][arr1[0].length];
+
+       for (int i = 0 ; i < arr1.length; i++){
+            // inner loop, that will traver column in this row
+            for (int j = 0; j < arr1[i].length; j++){
+                sumArray[i][j] = arr1[i][j] + arr2[i][j];
+            }
+        }
+
+        PrintArray(sumArray);
+
+    }
+
+    public static void DiagonalSum(int[][] arr){
+        int sum = 0;
+
+
+        for (int i = 0 ; i < arr.length; i++){
+            sum = sum + arr[i][i];
+        }
+
+        System.out.println("THe sum of the main diagonal = " + sum);
+    }
+
     public static void main(String[] args) {
 
-         int[][] matrix = { {1, 2, 3}, {4, 500, 6}, {7, 8, 9},{10,11,2} };
-        PrintArray(matrix);
-         PrintSumOfRow(matrix,1);
+        int[][] matrix1 = { {1, 2, 3}, {4, 500, 6}, {7, 8, 9} };
+        DiagonalSum(matrix1);
 
 
 
