@@ -21,9 +21,22 @@ Homework
 * 12)find if there exists a pair of elements in the array that add up to the target sum.
 * 10)Given an array with duplicate elements, create a new array with only unique elements.
 * 11)Write a program to rotate an array to the left by one position.
-* 15)Count the frequency of each element in an array.
+
 * 16)Given an array of integers, count the number of even and odd numbers in it.
-* 14)Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing.
+* 14)Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, 
+find the one that is missing.
+
+* 15)Count the frequency of each element in an array.
+
+
+1 2 1 4 5 2 2
+
+1 -> 2
+2 -> 3
+4 -> 1
+5 -> 1
+
+
 * 
 */
 
@@ -229,11 +242,67 @@ public class Arrays {
           System.out.println("Target NOT found");
    }
 
+// Given an array containing n different numbers taken from 0, 1, 2, ..., n, 
+// find the one that is missing.
+   public static void FindMissingNumber(int[] arr){
+      int n = arr.length; // The range is from 0 to n
+      // for eg {3, 0, 1}; // Here n (length) is 3, so numbers are from 0, 1, 2, 3. Missing is 2.
+      // n = 5 {1,0,2,4,5}; / missing number = 3
+      // if you count til n, 
+      //   eg 1 - 0+1+2+3 = 6
+      //   eg 2 = n = 5, 0+1+2+3+4+5 = 15
+      //                 1+0+2+4+5 = 12
+      // 15-12 = 3
 
+      System.out.println("n = " + n);
+
+        // Expected sum of numbers from 0 to n
+        int expectedSum = n * (n + 1) / 2;
+        System.out.println("Expected sum = " + expectedSum);
+
+        int actualSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            actualSum += arr[i];
+        }
+
+        System.out.println("Actual sum = " + actualSum);
+
+        int missingNumber = expectedSum - actualSum;
+        System.out.println("The missing number is: " + missingNumber);
+
+   }
+
+   // * 15)Count the frequency of each element in an array.
+   public static void GetElementFrequency(int[] arr){
+
+        int maxVal = 0; // Find max value to determine frequency array size
+        for (int i = 0; i < arr.length ; i++) {
+            if (arr[i] > maxVal) {
+                maxVal = arr[i];
+            }
+        }
+        // Array to store frequencies, index corresponds to number
+        int[] frequency = new int[maxVal + 1]; 
+
+        for (int i = 0; i <arr.length; i++) {
+            int val = arr[i];
+            frequency[val]++; // Increment count for that number
+        }
+
+        System.out.println("Element Frequencies:");
+        for (int i = 0; i < frequency.length; i++) {
+            if (frequency[i] > 0) { // Only print elements that appeared
+                System.out.println(i + " appears " + frequency[i] + " times.");
+            }
+         }
+
+   }
 
 
      public static void main(String[] args) {
-       int[] testArr = {10,5,25,8,25,15};
+       int[] testArr = {1,3,4,2,0,5};
+       int[] testArr2 = {1,3,4,3,1,3,4,2};
+       int[] testArr3 = {1,0,2,4,5};
    
        /* 
        PrintArray(testArr);
@@ -251,16 +320,9 @@ public class Arrays {
 
      // testFun(testArr);
 
-      int[] scores = new int[5];
-       for(int i = 0; i < scores.length; i++){
-         System.out.println((scores[i]));
-      }
+      //FindMissingNumber(testArr3);
 
-      int[] scores1 = {0,0,0,0,0};
-      System.out.println ("Printing scores1");
-      for(int i = 0; i < scores1.length; i++){
-         System.out.println((scores1[i]));
-      }
+     GetElementFrequency(testArr2);
 
    
        
