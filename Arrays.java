@@ -53,6 +53,15 @@ public class Arrays {
       }
    }
 
+    //1) Given an array of integers, print all its elements.
+   public static void PrintArray2(int[] arr,int j){
+      System.out.println("[PrintArray] Printing elements in the Array ");
+
+     // print jth element
+      System.out.println((arr[j]));
+     
+   }
+
    // 2) Calculate the sum of all elements in an integer array.
    public static void PrintSum(int[] arr){
       int currSum = 0;
