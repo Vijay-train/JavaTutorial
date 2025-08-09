@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.lang.System;
 /*
 ****
-& - Sets a bit to 1 if both corresponding bits are 1.
-| - Sets a bit to 1 if either or both of the corresponding bits are 1.
-^ - Sets a bit to 1 if only one of the corresponding bits is 1.
+& - Sets a bit to 1 if *both* corresponding bits are 1.
+| - Sets a bit to 1 if *either or both* of the corresponding bits are 1.
+^ - Sets a bit to 1 if *only* one of the corresponding bits is 1.
 ~ - Inverts all the bits (flips 0s to 1s and 1s to 0s)
 ****
 1. Even or Odd? 
@@ -29,7 +29,7 @@ import java.lang.System;
 5. Given a number n and an index i,
    check if the i-th bit is set (i.e., is 1).
 
-6. Given a number n and an index i, 
+6. *HW Given a number n and an index i, 
    unset the i-th bit (set it to 0).
 
 7. Given a number n and an index i,
