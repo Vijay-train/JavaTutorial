@@ -1,6 +1,12 @@
 import java.util.Scanner;
 import java.lang.System;
 /*
+****
+& - Sets a bit to 1 if both corresponding bits are 1.
+| - Sets a bit to 1 if either or both of the corresponding bits are 1.
+^ - Sets a bit to 1 if only one of the corresponding bits is 1.
+~ - Inverts all the bits (flips 0s to 1s and 1s to 0s)
+****
 1. Even or Odd? 
 - An even number always has its last bit (0 position) as 0.
 - An odd number always has its last bit (0 position) as 1.
@@ -12,6 +18,7 @@ import java.lang.System;
 - Each time this operation is performed, it clears the rightmost set bit.
 - You can loop and count how many times you perform 
 - this operation until the number becomes 0.
+
 
 4. Check if a number is a power of two**
 - What's unique about the binary representation of a power of two?
