@@ -4,8 +4,18 @@ import java.lang.System;
 ****
 & - Sets a bit to 1 if *both* corresponding bits are 1.
 | - Sets a bit to 1 if *either or both* of the corresponding bits are 1.
-^ - Sets a bit to 1 if *only* one of the corresponding bits is 1.
+^ - Sets a bit to 1 if *both* bits are different
 ~ - Inverts all the bits (flips 0s to 1s and 1s to 0s)
+
+XOR properties
+
+x^0=x (Identity Property) <<-  if we XOR a number with 0? It stays the same.
+x^x=0 (Inverse Property). <<-  if we XOR a number with itself? It cancels out! 
+
+<< 1 Left shift by 1, make the shifted bits 0 on the right
+>> 1 right shigt by 1, make the shifted buts 0 on the left
+****
+Tips and tricks - keep this in mind
 ****
 1. Even or Odd? 
 - An even number always has its last bit (0 position) as 0.
@@ -22,7 +32,7 @@ import java.lang.System;
 
 4. Check if a number is a power of two**
 - What's unique about the binary representation of a power of two?
-- 1 (0001), 2 (0010), 4 (0100), 8 (1000). They all have exactly one set bit!
+- 1 (0001), 2 (0010), 4 (0100), 8 (1000). 
 - Hint: We can use Kernighan's trick! n & (n - 1) will be 0 
 - for any power of two, because there's only one set bit to turn off.
 
@@ -38,20 +48,27 @@ import java.lang.System;
 8. Problem: Given an array nums 
    containing n distinct numbers in the range [0, n],
    return the missing number.
-   Hint - If we XOR all the numbers from 0 to n
+   Hint - matching jigsaw puzzles
+          If we XOR all the numbers from 0 to n
           and then XOR all the numbers in the array,
           the pairs will cancel out,
           leaving only the missing number.
+          n = 3 [3,0,1]
+          (3⊕0⊕1⊕2)⊕(3⊕0⊕1)
+            Rearrange the terms: (3⊕3)⊕(0⊕0)⊕(1⊕1)⊕2
+            All the pairs cancel out, leaving just 2.
+          
+
+
 
 9. Given a number n that is a power of two, 
    find the position of the only set bit.
    Example: n = 8 (binary 1000), the position is 3 (0-indexed).
-   Hint: We can use log2(n). 
-        But if we want a bit manipulation approach,
+   Hint: 
         we can repeatedly right shift the number
         and count the shifts until the number becomes 1.
 
-10. Given an array where all elements appear twice except for two,
+10. (*HW)Given an array where all elements appear twice except for two,
     find those two elements.
    Hint: This is a step up from finding one unique number. 
          First, XOR all the numbers.
