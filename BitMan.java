@@ -8,20 +8,19 @@ import java.lang.System;
 ~ - Inverts all the bits (flips 0s to 1s and 1s to 0s)
 
 XOR properties
-
 x^0=x (Identity Property) <<-  if we XOR a number with 0? It stays the same.
 x^x=0 (Inverse Property). <<-  if we XOR a number with itself? It cancels out! 
 
 << 1 Left shift by 1, make the shifted bits 0 on the right
->> 1 right shigt by 1, make the shifted buts 0 on the left
+>> 1 right shift by 1, make the shifted buts 0 on the left
 ****
 Tips and tricks - keep this in mind
 ****
-1. Even or Odd? 
+1. Given a number, print Even or Odd? 
 - An even number always has its last bit (0 position) as 0.
 - An odd number always has its last bit (0 position) as 1.
 
-2. Swap two numbers without a 3rd variale
+2. Swap two numbers without a 3rd variale ( 3 times xor)
 
 3. Count the number of bits that are 1 in a number. (The Kernighan's Algorithm)
 - There's a simple trick using the expression n = n & (n - 1).
@@ -30,7 +29,7 @@ Tips and tricks - keep this in mind
 - this operation until the number becomes 0.
 
 
-4. Check if a number is a power of two**
+4. Check if a number is a power of two**. 2^0 = 1 , 2^1 = 2, 2^2 = 4, 2^3= 8, 2^4= 16
 - What's unique about the binary representation of a power of two?
 - 1 (0001), 2 (0010), 4 (0100), 8 (1000). 
 - Hint: We can use Kernighan's trick! n & (n - 1) will be 0 
@@ -161,11 +160,57 @@ public class BitMan {
           }
       }
 
+      public static void EvenOrOdd (int num){
+
+         if ((num & 1) == 0){
+            System.out.println("The number is Even");
+         }
+         else{
+            System.out.println("The number is odd");
+         }
+      }
+
+      public static void Swap(int n, int m){
+         /* 3 xors */
+         n = n ^ m;
+         m = n ^ m;
+         n = n ^ m;
+
+         System.out.println("After swap n=" + n + " m=" + m);
+      }
+
+      public static void CountBits(int n){
+         // n = n & (n-1) until n = 0
+        int c=0;
+        while(n!=0){
+          n=n&(n-1);
+         c++;
+        }
+        System.out.println("No.of 1's in binary number : "+c);
+      
+      }
+
+      public static void IsPowerOf2(int num){
+         int val = num & (num - 1);
+
+         if (val == 0){
+            System.out.println("The number is a power of 2");
+         }
+         else{
+            System.out.println(("The number is NOT a power of 2"));
+         }
+      }
+
+
      public static void main(String[] args) {
-        leftShift(5,1);
-        rightShift(5,1);
+        //leftShift(5,1);
+        //rightShift(5,1);
         //5 0101
-        GetBit(5,3);
+        //GetBit(5,3);
+        //EvenOrOdd(13);
+        //Swap(10,20);
+        //CountBits(12);
+        IsPowerOf2(129);
      }
     
 
