@@ -48,7 +48,7 @@ Tips and tricks - keep this in mind
    containing n distinct numbers in the range [0, n],
    return the missing number.
    Hint - matching jigsaw puzzles
-          If we XOR all the numbers from 0 to n
+        If we XOR all the numbers from 0 to n
           and then XOR all the numbers in the array,
           the pairs will cancel out,
           leaving only the missing number.
@@ -201,16 +201,21 @@ public class BitMan {
          }
       }
 
+      // 5. Given a number n and an index i,
+      //check if the i-th bit is set (i.e., is 1).
+      public static void CheckBit(int num, int i){
+         int mask = 1 << i;
+         if ((num & mask) != 0){
+            System.out.println("The bit is set to 1");
+         }
+         else{
+            System.out.println("The bit is set to 0");
+         }
+      } 
+
 
      public static void main(String[] args) {
-        //leftShift(5,1);
-        //rightShift(5,1);
-        //5 0101
-        //GetBit(5,3);
-        //EvenOrOdd(13);
-        //Swap(10,20);
-        //CountBits(12);
-        IsPowerOf2(129);
+        CheckBit(13,2);
      }
     
 
