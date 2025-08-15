@@ -98,6 +98,8 @@ Tips and tricks - keep this in mind
    The expression (1 << i) - 1 creates a mask with 
    1s up to i-1. We can then use AND with this mask.
 
+13. Print Binary
+
 13. :Given two integers, check if they have opposite signs.
    Hint: The most significant bit (MSB) in a number's binary
     representation tells us its sign. 0 for positive, 
@@ -179,6 +181,15 @@ public class BitMan {
          System.out.println("After swap n=" + n + " m=" + m);
       }
 
+      public static void printBinary32(int n) {
+          for (int i = 31; i >= 0; i--) {
+              int bit = (n >> i) & 1;   // get the bit at position i
+              System.out.print(bit);     // print 0 or 1
+                }
+          System.out.println();
+         }
+
+
       public static void CountBits(int n){
          // n = n & (n-1) until n = 0
         int c=0;
@@ -215,7 +226,10 @@ public class BitMan {
 
 
      public static void main(String[] args) {
-        CheckBit(13,2);
+        //CheckBit(13,2);
+
+        int x = 13;
+        printBinary32(2);
      }
     
 
