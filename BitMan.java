@@ -133,104 +133,132 @@ Tips and tricks - keep this in mind
 
 */
 
-
 public class BitMan {
 
-      public static void leftShift(int n, int m){
-         int y = n << m;
-         System.out.println(y);
+   public static void leftShift(int n, int m) {
+      int y = n << m;
+      System.out.println(y);
+   }
+
+   public static void rightShift(int n, int m) {
+      int y = n >> m;
+      System.out.println(y);
+   }
+
+   public static void GetBit(int n, int pos) {
+      /*
+       * mask = 1 << pos
+       * n & mask
+       * if this is 0, then the bit is 0, else 1
+       */
+
+      int mask = 1 << pos;
+      if ((mask & n) == 0) {
+         System.out.println("The bit is zero");
+      } else {
+         System.out.println("The bit is one");
       }
+   }
 
-      public static void rightShift(int n, int m){
-         int y = n >> m;
-         System.out.println(y);
+   public static void EvenOrOdd(int num) {
+
+      if ((num & 1) == 0) {
+         System.out.println("The number is Even");
+      } else {
+         System.out.println("The number is odd");
       }
+   }
 
-      public static void GetBit(int n, int pos){
-         /*
-          * mask = 1 << pos
-          * n & mask
-          * if this is 0, then the bit is 0, else 1
-          */
+   public static void Swap(int n, int m) {
+      /* 3 xors */
+      n = n ^ m;
+      m = n ^ m;
+      n = n ^ m;
 
-          int mask = 1 << pos;
-          if ((mask & n) == 0){
-            System.out.println("The bit is zero");
-          }
-          else{
-            System.out.println("The bit is one");            
-          }
+      System.out.println("After swap n=" + n + " m=" + m);
+   }
+
+   public static void printBinary32(int n) {
+      for (int i = 31; i >= 0; i--) {
+         int bit = (n >> i) & 1; // get the bit at position i
+         System.out.print(bit); // print 0 or 1
       }
+      System.out.println();
+   }
 
-      public static void EvenOrOdd (int num){
-
-         if ((num & 1) == 0){
-            System.out.println("The number is Even");
-         }
-         else{
-            System.out.println("The number is odd");
-         }
-      }
-
-      public static void Swap(int n, int m){
-         /* 3 xors */
-         n = n ^ m;
-         m = n ^ m;
-         n = n ^ m;
-
-         System.out.println("After swap n=" + n + " m=" + m);
-      }
-
-      public static void printBinary32(int n) {
-          for (int i = 31; i >= 0; i--) {
-              int bit = (n >> i) & 1;   // get the bit at position i
-              System.out.print(bit);     // print 0 or 1
-                }
-          System.out.println();
-         }
-
-
-      public static void CountBits(int n){
-         // n = n & (n-1) until n = 0
-        int c=0;
-        while(n!=0){
-          n=n&(n-1);
+   public static void CountBits(int n) {
+      // n = n & (n-1) until n = 0
+      int c = 0;
+      while (n != 0) {
+         n = n & (n - 1);
          c++;
-        }
-        System.out.println("No.of 1's in binary number : "+c);
+      }
+      System.out.println("No.of 1's in binary number : " + c);
+
+   }
+
+   public static void IsPowerOf2(int num) {
+      int val = num & (num - 1);
+
+      if (val == 0) {
+         System.out.println("The number is a power of 2");
+      } else {
+         System.out.println(("The number is NOT a power of 2"));
+      }
+   }
+
+   // 5. Given a number n and an index i,
+   // check if the i-th bit is set (i.e., is 1).
+   public static void CheckBit(int num, int i) {
+      int mask = 1 << i;
+      if ((num & mask) != 0) {
+         System.out.println("The bit is set to 1");
+      } else {
+         System.out.println("The bit is set to 0");
+      }
+   }
+
+   public static void FindMissingNumber() {
+      int[] nums = { 3, 0, 1 };
+      int[] full = { 0, 2, 1, 3 };
+
+      int fullSum = 0;
+      int missingSum = 0;
+      int missing = 0;
+
+      // xor for full array
+      for (int i = 0; i < full.length; i++) {
+         fullSum = fullSum ^ full[i];
+      }
+      System.out.println("Missing count is = " + fullSum);
+
+      // xor for missing array
+      for (int i = 0; i < nums.length; i++) {
+         missingSum = missingSum ^ nums[i];
+      }
+      System.out.println("FUll count is = " + missingSum);
+
+      missing = fullSum ^ missingSum;
+
+      System.out.println("The missing number is: " + missing);
+   }
+
+   public static void indexPower2(int n) {
+      int position = 0;
+     
+         while ((n & 1) == 0) {
+            n >>= 1;
+            position++;
+         }
+         System.out.println("The position of the set bit is: " + position);
       
-      }
+   }
 
-      public static void IsPowerOf2(int num){
-         int val = num & (num - 1);
+   public static void main(String[] args) {
+      // CheckBit(13,2);
 
-         if (val == 0){
-            System.out.println("The number is a power of 2");
-         }
-         else{
-            System.out.println(("The number is NOT a power of 2"));
-         }
-      }
-
-      // 5. Given a number n and an index i,
-      //check if the i-th bit is set (i.e., is 1).
-      public static void CheckBit(int num, int i){
-         int mask = 1 << i;
-         if ((num & mask) != 0){
-            System.out.println("The bit is set to 1");
-         }
-         else{
-            System.out.println("The bit is set to 0");
-         }
-      } 
-
-
-     public static void main(String[] args) {
-        //CheckBit(13,2);
-
-        int x = 13;
-        printBinary32(2);
-     }
-    
+   //   FindMissingNumber();
+      indexPower2(8);
+   }
 
 }
