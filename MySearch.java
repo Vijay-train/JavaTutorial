@@ -2,14 +2,15 @@
     Find a number in an unsorted array.
 
     Count the occurrences of a number in an unsorted array.
+    {4,2,7,1,9,7,5,7}
+    Key = 7
+    Result = 3
  
-    Question: Write a Java program to perform a binary search on a sorted array of double values.
+    Question: Write a Java program to perform a binary search on a sorted array of int values.
       The program should return the index of the element if found, or -1 if not found.
-      Example Input: [1.1, 2.2, 3.3, 4.4, 5.5] and key = 3.3
+      Example Input: [1, 2, 3, 4, 5] and key = 3
       Expected Output: 2
     
-    Find a number in a sorted array
-
     Search for a number in a 2D sorted matrix
 
     Find the first and last occurrence of a number in a sorted array.
@@ -93,13 +94,45 @@ public class MySearch {
         }
     }
 
+    public static void SearchMatrix(int[][] matrix, int key){
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int low = 0;
+        int high = (m*n)-1;
+
+        while (low <= high){
+            int mid = (low + high)/2;
+            int row = mid/n;
+            int col = mid%n;
+
+            if (matrix[row][col] == key){
+                System.out.println("Element found at " + row + "x" + col);
+                return;
+            } else if (matrix[row][col] < key){
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        System.out.println("Item not found");
+    }
+
 
     public static void main(String[] args) {
         System.out.println(("Searching..."));
         int[] num = {10};
-        int keyToFind = 100;
+        int keyToFind = 5;
 
-        binarySearch(num, keyToFind);
+        int[][] matrix = {
+            {1,3,5},
+            {10,11,16}
+        };
+
+
+
+        SearchMatrix(matrix, keyToFind);
 
  
     }
