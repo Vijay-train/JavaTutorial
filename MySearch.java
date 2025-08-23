@@ -12,16 +12,20 @@
       Expected Output: 2
     
     Search for a number in a 2D sorted matrix
-
+    
     Find the first and last occurrence of a number in a sorted array.
 
     Find the missing number in a sorted array of distinct numbers from 1 to N.
 
+    Find the floor of an element in a sorted array.
+    
+    Search a key in a sorted infinite array.
+    
     Find a triplet in a sorted array that sums to a given value.
 
-    Search a key in a sorted infinite array.
+    
 
-    Find the floor of an element in a sorted array.
+   
 
     Find the ceiling of an element in a sorted array.
 
@@ -119,20 +123,98 @@ public class MySearch {
         System.out.println("Item not found");
     }
 
+    public static int[] FindFirstAndLast(int[] arr, int target){
+        int[] result = {-1,-1};
+
+        // 1. Find the first occurence
+        int low = 0, high = arr.length - 1;
+        while(low <= high){
+            int mid = (low + high)/2;
+
+            if (arr[mid] == target){ // we found the target
+                result[0] = mid;
+                high = mid - 1;
+            }
+            else if (arr[mid] < target){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+
+        // 2. Find the last occurence
+        low = 0;
+        high = arr.length - 1;
+        while (low <= high){
+            int mid = (low + high)/2;
+
+            if (arr[mid] == target){
+                result[1] = mid;
+                low = mid + 1;
+            }
+            else if (arr[mid] < target ){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+
+        }
+
+        return result;
+    }
+
+    public static void FindMissingNo(int[] arr) {  // find missing no between 1 to N.
+        int low = 0, high = arr.length - 1, missing = -1;
+        while(low <= high) {
+            int mid = (low + high)/2;
+            if(arr[mid] == mid + 1) {
+                low = mid + 1;
+            }
+            else {
+                missing = arr[mid] - 1;
+                high = mid - 1;
+            }
+        }
+        System.out.println("Missing Number = " + missing);
+    }
+
+    public static void checkElement(int[] nums, int target){
+        int low = 0;
+        int high = 1;
+        while(nums[high] < target){
+            low = high;
+            high = high * 2;
+        }
+        // at this point we have our range
+
+        boolean found = false;
+        while(low <= high){
+            int mid = (low + high)/2;
+            if(nums[mid]==target){
+                found = true;
+                break;
+            }
+            else if(nums[mid] < target){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+        if(found){
+            System.out.println("Element found!");
+        }
+        else{
+            System.out.println("Element not found!");
+        }
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(("Searching..."));
-        int[] num = {10};
-        int keyToFind = 5;
-
-        int[][] matrix = {
-            {1,3,5},
-            {10,11,16}
-        };
-
-
-
-        SearchMatrix(matrix, keyToFind);
+        int[] arr = {2, 3, 4, 5};
+        FindMissingNo(arr);
 
  
     }
