@@ -131,6 +131,10 @@ Tips and tricks - keep this in mind
     than or equal to n.
     Example: n = 10, answer is 16. n = 4, answer is 4.
 
+    2^2 = 4
+    2^3 = 8
+    2^4 = 16
+
 */
 
 public class BitMan {
