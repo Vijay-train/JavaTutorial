@@ -153,24 +153,60 @@ public class MyRecursion {
 
     }
 
-    
 
+/* Backtracking problmems */
+      public static void generate(int n, String currentString) {
+        // Base case: If the string is the desired length, print it.
+        if (currentString.length() == n) {
+            System.out.println(currentString);
+            return;
+        }
+
+        // Choice 1: Append '0' and recurse for the next position.
+        generate(n, currentString + "0");
+
+        // Choice 2: Append '1' and recurse for the next position.
+        generate(n, currentString + "1");
+    }
+
+    public static void generatePermutations(String str, int left, int right) {
+        if (left == right) {
+            System.out.println(str);
+            return;
+        }
+        for (int i = left; i <= right; i++) {
+           
+            str = swap(str, left, i);  // 1. Choose:
+       
+            generatePermutations(str, left + 1, right);      // 2. Explore:
+        
+            str = swap(str, left, i);   // 3. Un-choose (Backtrack!):
+        }
+    }
+
+    public static String swap(String a, int i, int j) {
+        char[] charArray = a.toCharArray();
+        char temp = charArray[i]; charArray[i] = charArray[j]; charArray[j] = temp;
+        return String.valueOf(charArray);
+    }
+
+    public static void FindPath(int n, int m , int r, int c, String str) {
+        if(r == n-1 && c == m-1) {
+            System.out.println(str);
+            return;
+        }
+        if( r >= n || c >= m) {
+            return;
+        }
+        FindPath(n,m,r+1,c,str + "D");
+        FindPath(n,m,r,c+1,str + "R");
+    }
 
     public static void main(String[] args) {
-       ArrayList<Integer> list = new ArrayList<>();
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(4);
-       list.add(5);
-
-  
-    int count = CountOccurences(list, 1, 0);
-
-    System.out.println("Function returned = " + count);
       
-
-     //  TestArrayList();
+    //   generate(2, "");
+    //   generatePermutations("abc", 0,2);
+    FindPath(2, 2, 0, 0, "");
    
     }
   
