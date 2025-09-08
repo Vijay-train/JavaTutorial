@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.lang.System;
 import java.util.ArrayList;
 
@@ -75,10 +74,6 @@ public class MyRecursion {
         int currElement = list.remove(0);
         return currElement + sum(list);
     }
-
-
-
-
 
 
     // without changing the list - Sum of ArrayList
@@ -201,11 +196,28 @@ public class MyRecursion {
         FindPath(n,m,r,c+1,str + "R");
     }
 
+    public static void FindPathInMaze(int n, int m ,int[][] matrix ,int r, int c, String str) {
+        if(r == n-1 && c == m-1) {
+            System.out.println(str);
+            return;
+        }
+        if( r >= n || c >= m||matrix[r][c]==1) {
+            return;
+        }
+        FindPathInMaze(n,m,matrix,r+1,c,str + "D");
+        FindPathInMaze(n,m,matrix,r,c+1,str + "R");
+    }
+
+
+
     public static void main(String[] args) {
       
     //   generate(2, "");
     //   generatePermutations("abc", 0,2);
-    FindPath(3, 3, 0, 0, "");
+    //FindPath(3, 3, 0, 0, "");
+     int[][] matrix={{0,0,1},{0,0,1},{0,0,0}};
+    FindPathInMaze(3, 3,matrix, 0, 0, "");
+
     
    
     }
