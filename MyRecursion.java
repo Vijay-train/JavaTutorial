@@ -65,7 +65,7 @@ public class MyRecursion {
         return findMax(arr,n-1,max);
     }
 
-    // changing list
+    // changing list - Sum of ArrayList
     public static int sum(ArrayList<Integer> list){
         // Base case
         if (list.isEmpty()){
@@ -81,8 +81,7 @@ public class MyRecursion {
 
 
 
-
-    // without changing the list
+    // without changing the list - Sum of ArrayList
     public static  int sumWithIndex(ArrayList<Integer> arr,int i) {
         if (i == arr.size()) {
             return 0; // base case: no more elements
@@ -206,7 +205,8 @@ public class MyRecursion {
       
     //   generate(2, "");
     //   generatePermutations("abc", 0,2);
-    FindPath(2, 2, 0, 0, "");
+    FindPath(3, 3, 0, 0, "");
+    
    
     }
   
