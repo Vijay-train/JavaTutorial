@@ -85,7 +85,7 @@ public class Sorting {
 
     /* Merge sort End */
 
-
+    // { 3, 7, 2, 1 };
     public static void insertionSort(int[] array) {
         int n = array.length;
         for (int i = 1; i < n; i++) {
@@ -112,7 +112,7 @@ public class Sorting {
     }
 
 
-
+    // [3,7,2,1]
     public static void selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -138,7 +138,7 @@ public class Sorting {
             } else {
                 System.out.println("  No swap (i already holds the minimum)");
             }
-            
+
             System.out.printf("  After pass %d: %s%n%n", i + 1, Arrays.toString(arr));
         }
     }
@@ -163,16 +163,16 @@ public class Sorting {
 
     public static void main(String[] args) {
 
-        int arr[] = { 3, 7, 2, 1 };
+        int arr[] = { 9,3, 7, 2, 1 };
      //   System.out.println("Before sort" + Arrays.toString(arr));
 
        // selectionSortVerbose(arr);
        // insertionSortVerbose(arr);
 
     //    bubbleSort(arr);
-        selectionSort(arr);
+    //    selectionSort(arr);
     //    insertionSort(arr);
-    //    Mergesort(arr, 0, arr.length - 1,0);
+        Mergesort(arr, 0, arr.length - 1,0);
     //    System.out.println("Merge sort" + Arrays.toString(arr));
 
     }
