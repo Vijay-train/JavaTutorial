@@ -1,4 +1,15 @@
 import java.util.Arrays;
+/*
+ * Homeowork
+ * 
+ * 1) Sort Your Friends: 
+   Given an array of strings (e.g., your friends' names), modify the Bubble Sort algorithm to sort them alphabetically.
+   String[] names = {"Rohan", "Amit", "Priya", "Sonia"};
+
+   2) Top of the Class: 
+   Modify the Selection Sort algorithm to sort an array of student marks in descending order (highest to lowest).
+   int[] marks = {78, 92, 65, 88, 54};
+ */
 
 public class Sorting {
 
@@ -317,10 +328,9 @@ public class Sorting {
     //    bubbleSort(arr);
     //    selectionSort(arr);
     //    insertionSort(arr);
-    mergeSort(arr, 0, arr.length - 1);
-    //    quickSort(arr, 0, arr.length - 1);
-    //    System.out.println("Merge sort" + Arrays.toString(arr));
+    //mergeSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
         System.out.println("======================================================");
-    //    System.out.println("Final Sorted Array: " + Arrays.toString(arr));
+        System.out.println("Final Sorted Array: " + Arrays.toString(arr));
     }
 }
