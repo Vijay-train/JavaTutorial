@@ -3,7 +3,7 @@ import java.util.Arrays;
  * Homeowork
  * 
  * 1) Sort Your Friends: 
-   Given an array of strings (e.g., your friends' names), modify the Bubble Sort algorithm to sort them alphabetically.
+   Given an array of strings (e.g., your friends' names), sort them alphabetically.
    String[] names = {"Rohan", "Amit", "Priya", "Sonia"};
 
    2) Top of the Class: 
