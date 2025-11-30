@@ -71,7 +71,7 @@ public class MyRecursion {
             return 0;
         }
 
-        int currElement = list.remove(0);
+        int currElement = list.removeFirst();
         return currElement + sum(list);
     }
 
@@ -100,7 +100,7 @@ public class MyRecursion {
         names.add("Alice");          	// [Alice]
         names.add("Bob");            	// [Alice, Bob]
         
-        System.out.println(names.get(0)); // Alice
+        System.out.println(names.getFirst()); // Alice
         System.out.println(names); // Alice
         
     }
