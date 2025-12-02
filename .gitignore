@@ -4,3 +4,4 @@ out/
 
 # Maven target
 target/
+bin/
