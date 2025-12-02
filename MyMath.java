@@ -1,5 +1,7 @@
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import java.lang.System;
+
 /*
  
  * 1) Calculate the volume of a cylinder. The formula is V=pi*r^2*h.
@@ -86,7 +88,7 @@ public class MyMath {
           double pi = Math.PI;
           System.out.println("pi = " + pi);
           double volume = pi * Math.pow(r,2) * h;
-          String formattedVol = String.format("%.2f",volume);
+          String formattedVol = "%.2f".formatted(volume);
           System.out.println(("The volume of cyclinder = " + formattedVol));
      }
 
@@ -130,7 +132,7 @@ public class MyMath {
   
       public static void genOTP(int min, int max){
 
-          double rand = Math.random();
+          double rand = ThreadLocalRandom.current().nextDouble();
           // o - 9.99
 
           int maxRange = (max - min) + 1 ;
