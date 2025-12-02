@@ -1,0 +1,6 @@
+# Ignore compiled class files and build output
+*.class
+out/
+
+# Maven target
+target/
