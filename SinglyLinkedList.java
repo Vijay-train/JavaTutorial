@@ -38,72 +38,10 @@ public class SinglyLinkedList {
         this.head = null;
     }
 
-    /**
-     * Title: Insert at Beginning
-     *
-     * Problem (what it solves): Insert a new node with given data at the start of the
-     * singly linked list. This is useful for LIFO (stack-like) insertion and is O(1) time.
-     *
-     * Output: The list now has the new value at head; all previous nodes shift logically.
-     *
-     * Approach:
-     * - Create a new node with the data.
-     * - Set the new node's next pointer to the current head.
-     * - Update head to point to the new node.
-     *
-     * Example Walkthrough (list initially empty, then inserting 10, 20, 30):
-     * - Initial: head = null
-     * - Insert 10:
-     *     newNode = Node(10), newNode.next = null
-     *     head = newNode
-     *     List: 10 -> null
-     * - Insert 20:
-     *     newNode = Node(20), newNode.next = head (10)
-     *     head = newNode
-     *     List: 20 -> 10 -> null
-     * - Insert 30:
-     *     newNode = Node(30), newNode.next = head (20)
-     *     head = newNode
-     *     List: 30 -> 20 -> 10 -> null
-     *
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
-     */
-    public void insertAtBeginning(int data) {
+   public void insertAtEnd(int data) {
+     
         Node newNode = new Node(data);
-        newNode.next = head;
-        head = newNode;
-        if (TRACE) System.out.println("[TRACE] inserted " + data + " at beginning");
-    }
-
-    /**
-     * Title: Insert at End
-     *
-     * Problem (what it solves): Add a new node with given data at the end of the
-     * singly linked list. Useful for FIFO (queue-like) insertion. Requires traversal
-     * to find the last node, so O(n) time.
-     *
-     * Output: The list now has the new value at the tail; old structure preserved.
-     *
-     * Approach:
-     * - If list is empty, insert at head (O(1)).
-     * - Otherwise, traverse to the last node (next == null).
-     * - Update the last node's next to point to the new node.
-     *
-     * Example Walkthrough (list initially 10 -> 20 -> null, inserting 30):
-     * - Initial: head = Node(10), head.next = Node(20), head.next.next = null
-     *     List: 10 -> 20 -> null
-     * - Insert 30:
-     *     newNode = Node(30)
-     *     Traverse: current = head(10) -> current = head.next(20) -> current.next = null (found last)
-     *     lastNode.next = newNode
-     *     List: 10 -> 20 -> 30 -> null
-     *
-     * Time Complexity: O(n) where n is length of list
-     * Space Complexity: O(1)
-     */
-    public void insertAtEnd(int data) {
-        Node newNode = new Node(data);
+      
         if (head == null) {
             head = newNode;
             if (TRACE) System.out.println("[TRACE] inserted " + data + " at end (empty list)");
@@ -117,6 +55,16 @@ public class SinglyLinkedList {
         current.next = newNode;
         if (TRACE) System.out.println("[TRACE] inserted " + data + " at end");
     }
+    
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+        if (TRACE) System.out.println("[TRACE] inserted " + data + " at beginning");
+    }
+
+    
+    
 
     /**
      * Title: Insert at Position
@@ -595,7 +543,7 @@ public class SinglyLinkedList {
         list.insertAtEnd(30);
         System.out.print("List after insertAtEnd(10, 20, 30): ");
         list.display();
-
+/*
         System.out.println("\n=== Insert at Beginning ===");
         list.insertAtBeginning(5);
         System.out.print("List after insertAtBeginning(5): ");
@@ -652,5 +600,5 @@ public class SinglyLinkedList {
         // Create a cycle manually (careful: only for testing)
         // list2.head.next.next.next = list2.head.next; // cycle: 1->2->3->2->...
         // System.out.println("List2 (with cycle): " + list2.hasCycle());
-    }
+    */ }
 }
