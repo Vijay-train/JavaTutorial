@@ -260,7 +260,7 @@ public class GreedyAlgorithms {
     public static int minCoinsGreedy(int[] coins, int amount) {
         if (amount <= 0) return 0; // no coins needed
         
-        // Sort coins in descending order
+        // Sort coins in ascending order
         java.util.Arrays.sort(coins);
         // [25, 10, 5, 1] NOT THIS
         // [1,5,10,25]
